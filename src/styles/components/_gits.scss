@@ -1,0 +1,35 @@
+@import './colors';
+@import './variables';
+@mixin fonts {
+  line-height: 13px;
+  font-size: $font-size-10;
+  color: $matter-supply-black;
+  font-family: $font-family-normal;
+}
+.Gits-profile {
+  height: auto;
+  border-bottom: 1px solid $matter-supply-white2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .data {
+    padding-top: 10px;
+  }
+
+  .description {
+    line-height: 32px;
+    font-size: $font-size-24;
+    color: $matter-supply-black;
+    font-family: $font-family-normal;
+    margin-bottom: 20px;
+    display: block;
+  }
+}
+.created-date {
+  @include fonts;
+  padding-right: 20px;
+}
+.diff-date {
+  @include fonts;
+  color: $matter-supply-blue;
+}

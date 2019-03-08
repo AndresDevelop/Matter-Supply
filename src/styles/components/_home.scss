@@ -1,0 +1,30 @@
+@import './bulmaVariables';
+@import './variables';
+@import './colors';
+
+.home-wrapper {
+  .home-title {
+    font-size: $font-size-120;
+    font-stretch: normal;
+    font-family: $font-family-normal;
+    color: $matter-supply-blue;
+    line-height: 100px;
+  }
+  .home-subtitle {
+    line-height: 24px;
+    font-size: $font-size-14;
+    font-family: $font-family-normal;
+    color: $matter-supply-grey1;
+  }
+}
+@media screen and (max-width: $tablet) {
+  .container {
+    max-width: 90%;
+  }
+  .home-wrapper {
+    .home-title {
+      font-size: $font-size-60;
+      line-height: 64px;
+    }
+  }
+}

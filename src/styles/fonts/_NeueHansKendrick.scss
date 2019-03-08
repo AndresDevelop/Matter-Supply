@@ -1,0 +1,12 @@
+
+$fontDirectory: '../../fonts';
+
+@font-face {
+	font-family: 'Neuehanskendrick';
+	font-weight: normal;
+	src: url('#{$fontDirectory}/neuehanskendrick-regular.eot') format('embedded-opentype');
+	src: url('#{$fontDirectory}/neuehanskendrick-regular.woff') format('woff');
+	src: url('#{$fontDirectory}/neuehanskendrick-regular.woff2') format('woff2');
+}
+
+

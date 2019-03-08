@@ -1,0 +1,54 @@
+@import './colors';
+@import './variables';
+@import './bulmaVariables';
+
+.search {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 80px;
+  input {
+    border: 0px;
+    width: 488px;
+    height: 62px;
+    border-radius: 31px;
+    background-color: $matter-supply-white;
+    background-image: url('https://a.icons8.com/WbaWpnhV/dfVUzE/search.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-position: 20px;
+    padding-left: 49px;
+    margin-top: 52px;
+    margin-bottom: 46px;
+    &::placeholder {
+      color: $matter-supply-grey2;
+      font-size: $font-size-18;
+      font-family: $font-family-normal;
+      line-height: 24px;
+    }
+  }
+  button {
+    width: 200px;
+    height: 60px;
+    border: none;
+    border-radius: 30px;
+    background-color: $matter-supply-blue;
+    cursor: pointer;
+
+    span {
+      line-height: 32px;
+      font-size: $font-size-24;
+      color: $matter-supply-white-pure;
+    }
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .search {
+    input {
+      width: 290px;
+    }
+  }
+}

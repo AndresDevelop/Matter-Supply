@@ -1,0 +1,22 @@
+@import './colors';
+@import './variables';
+@import './bulmaVariables';
+.git-detail {
+  padding-top: 80px;
+  .title {
+    font-size: $font-size-120;
+    color: $matter-supply-blue;
+    font-family: $font-family-normal;
+    line-height: 100px;
+    padding-bottom: 60px;
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .git-detail {
+    .title {
+      font-size: $font-size-60;
+      line-height: 64px;
+    }
+  }
+}

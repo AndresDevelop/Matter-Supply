@@ -1,0 +1,23 @@
+@import './variables';
+@import './colors';
+
+.profile {
+  display: flex;
+  border-bottom: 1px solid $matter-supply-white2;
+  margin-bottom: 64px;
+  margin-top: 30px;
+  .posts {
+    padding-left: 30px;
+    padding-bottom: 20px;
+    .user {
+      line-height: 32px;
+      font-size: $font-size-24;
+      font-family: $font-family-normal;
+      color: $matter-supply-black;
+    }
+  }
+}
+.is-71x70 {
+  width: 71px;
+  height: 70px;
+}
