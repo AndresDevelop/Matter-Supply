@@ -6,6 +6,22 @@
   border-bottom: 1px solid $matter-supply-white2;
   margin-bottom: 64px;
   margin-top: 30px;
+  .data-post {
+    display: flex;
+    flex-basis: 100%;
+    justify-content: space-between;
+    align-items: center;
+    button {
+     @include button(237px, 60px);
+      margin-bottom: 20px;
+      span {
+        font-size: $font-size-24;
+        font-family: $font-family-normal;
+        line-height: 32px;
+        color: $matter-supply-white-pure;
+      }
+    }
+  }
   .posts {
     padding-left: 30px;
     padding-bottom: 20px;

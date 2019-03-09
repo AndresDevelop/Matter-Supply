@@ -9,7 +9,13 @@ const API_PATH_BASE = process.env.REACT_APP_BASE_URL || 'https://api.github.com'
  * @param {Function} callback [Callback to which a response will be passed]
  * @param {Object} params [URL parameters as key value pairs]
  */
-export const executeDataRequest = (path, method, responseType, params) => {
+export const executeDataRequest = (
+  path,
+  method,
+  postData,
+  responseType,
+  params
+) => {
   const urlApi = API_PATH_BASE;
   let urlWithParams = urlApi + path;
 
@@ -26,10 +32,16 @@ export const executeDataRequest = (path, method, responseType, params) => {
     urlWithParams = urlWithParams.replace(/&$/, '');
   }
 
+  const tokenGit = 'c43fc0fce70620546c1eabd53f0c47b1188162d1';
+
   const config = {
-    // data: postData,
+    data: postData,
     method: method || 'GET',
     url: urlWithParams,
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `token ${tokenGit}`,
+    },
   };
   if (responseType) config.responseType = responseType;
 

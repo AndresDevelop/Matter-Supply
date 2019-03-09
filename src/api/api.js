@@ -18,3 +18,19 @@ export const getGitDetail = id => DataRequestMethods.executeDataRequest(`/gists/
  */
 
 export const getUserInfo = user => DataRequestMethods.executeDataRequest(`/users/${user}`);
+
+/**
+ * @description Request to be able to create gists
+ * @param {String} token Value to search
+ */
+export const createGists = body => DataRequestMethods.executeDataRequest('/gists', 'POST', body);
+
+export const data = (description, content) => ({
+  description,
+  public: true,
+  files: {
+    description: {
+      content,
+    },
+  },
+});

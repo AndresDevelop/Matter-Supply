@@ -5,6 +5,7 @@ import Header from './components/header/Header';
 import Home from './pages/home/Home';
 import Store from './components/store/store';
 import Gist from './pages/gist/Gist';
+import NewGists from './pages/createGists/CreateGits';
 
 const App = () => (
   <Store>
@@ -14,6 +15,7 @@ const App = () => (
           <Header />
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route exact path="/createGists" component={NewGists} />
             <Route exact path="/:id" component={Gist} />
           </Switch>
         </div>

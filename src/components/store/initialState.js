@@ -1,4 +1,5 @@
 export const initialState = {
   user: 'AndresDevelop',
-  gits: []
+  gits: [],
+  logging: false
 };

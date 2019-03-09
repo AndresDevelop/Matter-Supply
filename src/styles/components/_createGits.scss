@@ -1,0 +1,30 @@
+@import './colors';
+@import './variables';
+@mixin input {
+  width: 100%;
+  border: 1px solid $matter-supply-grey2;
+  border-radius: 3px;
+  background-color: $matter-supply-grey-3;
+}
+
+.form-input {
+  .title-input {
+    margin-top: 20px;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    height: 62px;
+    @include input;
+  }
+  .textarea {
+    @include input;
+    height: 300px;
+  }
+  button {
+    @include button(200px, 60px);
+    span{
+        color: $matter-supply-white-pure;
+        line-height: 32px;
+        font-family: $font-family-normal;
+    }
+  }
+}

@@ -1,3 +1,4 @@
+@import './colors';
 // Font Weights
 $font-weight-light: 100;
 $font-weight-normal: 400;
@@ -22,3 +23,12 @@ $font-size-60: 60px;
 $font-size-120: 120px;
 
 $font-family-normal: 'Neuehanskendrick', 'Arial Bold';
+
+@mixin button($width , $height) {
+  width: $width;
+  height: $height;
+  border: none;
+  border-radius: 30px;
+  background-color: $matter-supply-blue;
+  cursor: pointer;
+}

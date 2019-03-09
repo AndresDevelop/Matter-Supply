@@ -30,13 +30,7 @@
     }
   }
   button {
-    width: 200px;
-    height: 60px;
-    border: none;
-    border-radius: 30px;
-    background-color: $matter-supply-blue;
-    cursor: pointer;
-
+    @include button(200px, 60px);
     span {
       line-height: 32px;
       font-size: $font-size-24;

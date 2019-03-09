@@ -1,12 +1,12 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import StoreContext from '../store/context';
+import { LogIn } from '../store/actions';
 
 import '../../styles/components/_header.scss';
 
 const Header = () => {
-  const [login, setLogin] = useState(false);
-  const { user } = useContext(StoreContext);
+  const { user, dispatch, logging } = useContext(StoreContext);
 
   return (
     <header className="header-wrapper">
@@ -27,7 +27,7 @@ const Header = () => {
           <div className="navbar-end">
             <div className="navbar-item">
               <div className="buttons">
-                {login ? (
+                {logging ? (
                   <figure className="image is-71x70">
                     <img
                       className="is-rounded"
@@ -42,9 +42,9 @@ const Header = () => {
                 <button
                   className="button"
                   type="button"
-                  onClick={() => setLogin(!login)}
+                  onClick={() => dispatch(LogIn(true))}
                 >
-                  <strong>{login ? 'Log Out' : 'Sign In'}</strong>
+                  <strong>{logging ? 'Log Out' : 'Sign In'}</strong>
                 </button>
               </div>
             </div>
