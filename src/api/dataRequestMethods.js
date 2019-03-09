@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import axios from 'axios';
 
 const API_PATH_BASE = process.env.REACT_APP_BASE_URL || 'https://api.github.com';
@@ -13,6 +14,7 @@ export const executeDataRequest = (
   path,
   method,
   postData,
+  tokenGit,
   responseType,
   params
 ) => {
@@ -32,15 +34,14 @@ export const executeDataRequest = (
     urlWithParams = urlWithParams.replace(/&$/, '');
   }
 
-  const tokenGit = 'c43fc0fce70620546c1eabd53f0c47b1188162d1';
-
+  const token = tokenGit ? `token ${tokenGit}` : '';
   const config = {
     data: postData,
     method: method || 'GET',
     url: urlWithParams,
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `token ${tokenGit}`,
+      Authorization: token,
     },
   };
   if (responseType) config.responseType = responseType;
