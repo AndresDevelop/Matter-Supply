@@ -3,3 +3,4 @@ export const FETCH_GITS_DETAIL = 'FETCH_GITS_DETAIL';
 export const ERROR_FETCH = 'ERROR_FETCH';
 export const FETCH_USER_INFO = 'FETCH_USER_INFO';
 export const LOG_IN = 'LOG_IN';
+export const CREATE_GISTS = 'CREATE_GISTS';

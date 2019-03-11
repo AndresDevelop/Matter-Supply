@@ -1,5 +1,6 @@
 /* eslint-disable import/no-cycle */
 import axios from 'axios';
+import { useLocalStorage } from '../utils/helpers';
 
 const API_PATH_BASE = process.env.REACT_APP_BASE_URL || 'https://api.github.com';
 
@@ -54,3 +55,51 @@ export const executeDataRequest = (
     })
     .catch(error => Promise.reject(error));
 };
+
+// Axios interceptor
+
+axios.interceptors.request.use(
+  (config) => {
+    if (window.location.href.toLowerCase().indexOf('code') > -1) {
+      const storeQueryParam = new URLSearchParams(window.location.search).get(
+        'code'
+      );
+      useLocalStorage('code', storeQueryParam);
+    } else {
+      config.params = {
+        access_token: JSON.parse(localStorage.getItem('token')),
+      };
+    }
+    return config;
+  },
+  error => Promise.reject(error)
+);
+
+// Add a response interceptor
+axios.interceptors.response.use(
+  (response) => {
+    if (window.location.href.toLowerCase().indexOf('code') > -1) {
+      useLocalStorage('token', response.data.split('=')[1].split('&')[0]);
+      response = response.config;
+      window.open('http://localhost:3000/', '_self');
+    }
+    return response;
+  },
+  error => Promise.reject(error)
+);
+
+const clientId = '3423e5cdc6d5b000f48e';
+const clientSecret = '2046af365a13a5662f9cb78ef3eecf6189a12957';
+const GITHUB_AUTH_ACCESSTOKEN_URL = 'https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token';
+
+export const AuthGit = code => axios({
+  method: 'post',
+  url: GITHUB_AUTH_ACCESSTOKEN_URL,
+  data: {
+    scopes: ['gist'],
+    note: 'create gits',
+    client_id: clientId,
+    client_secret: clientSecret,
+    code,
+  },
+});

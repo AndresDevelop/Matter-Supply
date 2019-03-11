@@ -1,6 +1,5 @@
 /* eslint-disable import/no-cycle */
 import * as DataRequestMethods from './dataRequestMethods';
-
 /**
  * @description Request to get all the gist of a user
  * @param {String} user Value to search
@@ -27,22 +26,11 @@ export const getUserInfo = user => DataRequestMethods.executeDataRequest(`/users
 export const createGists = body => DataRequestMethods.executeDataRequest('/gists', 'POST', body);
 
 /**
- * @description Get Auth from GitHUB
+ * @description Get User Auth from GitHUB
  * @param {String} body Value to POst
  */
 
-const clientId = '3423e5cdc6d5b000f48e';
-const clientSecret = '2046af365a13a5662f9cb78ef3eecf6189a12957';
-const body = {
-  scopes: ['gist'],
-  note: 'create gits',
-  client_id: clientId,
-  client_secret: clientSecret,
-  fingerprint:'matter-supply'
-};
-
-export const Auth = bodyData => DataRequestMethods.executeDataRequest('/authorizations', 'POST', bodyData);
-Auth(body).then( e=> console.log(e));
+export const getUser = () => DataRequestMethods.executeDataRequest('/user');
 
 export const data = (description, content) => ({
   description,

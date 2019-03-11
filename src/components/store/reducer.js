@@ -4,6 +4,7 @@ import {
   ERROR_FETCH,
   FETCH_USER_INFO,
   LOG_IN,
+  CREATE_GISTS,
 } from './types';
 import { initialState } from './initialState';
 
@@ -25,6 +26,9 @@ const reducer = (state = initialState, action) => {
 
     case LOG_IN:
       return { ...state, logging: !state.logging };
+
+    case CREATE_GISTS:
+      return { ...state, gits: state.gits.concat([action.payload]) };
   }
 };
 

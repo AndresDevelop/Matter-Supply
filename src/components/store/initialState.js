@@ -1,5 +1,5 @@
 export const initialState = {
-  user: 'AndresDevelop',
+  user: '',
   gits: [],
   logging: false
 };

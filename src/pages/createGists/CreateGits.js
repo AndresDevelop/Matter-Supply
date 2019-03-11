@@ -1,14 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { createGists, data } from '../../api/api';
+import StoreContext from '../../components/store/context';
+import { CreateGists } from '../../components/store/actions';
 import '../../styles/components/_createGits.scss';
 
 const CreateGits = () => {
   const [inputValue, setInputValue] = useState('');
   const [textValue, setTextValue] = useState('');
+  const { dispatch } = useContext(StoreContext);
 
   const Create = () => {
     const body = data(inputValue, textValue);
-    createGists(body).then();
+    createGists(body).then((value) => {
+      dispatch(CreateGists(value.data));
+    });
   };
   const handleText = ({ target }) => {
     const { value } = target;
