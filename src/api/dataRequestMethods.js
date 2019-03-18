@@ -81,7 +81,7 @@ axios.interceptors.response.use(
     if (window.location.href.toLowerCase().indexOf('code') > -1) {
       useLocalStorage('token', response.data.split('=')[1].split('&')[0]);
       response = response.config;
-      window.open('http://localhost:3000/', '_self');
+      window.open('https://matter-supply.netlify.com/', '_self');
     }
     return response;
   },

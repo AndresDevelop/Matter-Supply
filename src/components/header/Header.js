@@ -16,7 +16,7 @@ const Header = () => {
 
   const logOut = () => {
     localStorage.removeItem('token');
-    window.open('http://localhost:3000/', '_self');
+    window.open('https://matter-supply.netlify.com/', '_self');
   };
 
   return (
