@@ -9,7 +9,7 @@ const Message = ({ message }) => {
   }
   return (
     message && (
-      <div className="modal-error">
+      <div className="modal-error" data-testid="modal">
         <div className="modal is-active" ref={refModal}>
           <div className="modal-background" />
           <div className="modal-content">
@@ -39,6 +39,7 @@ const Message = ({ message }) => {
             className="modal-close is-large"
             type="button"
             aria-label="close"
+            data-testid="button-modal"
             onClick={() => closeModal()}
           />
         </div>
